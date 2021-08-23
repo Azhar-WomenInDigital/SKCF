@@ -1,0 +1,3 @@
+If you want to use laravel notify dark mode use the below command in .env
+
+NOTIFY_THEME=dark
