@@ -8,6 +8,9 @@
             <a href="{{ route('admin.dashboard') }}" class="waves-effect"><span class="badge badge-pill badge-primary float-right">1</span><i class="zmdi zmdi-view-dashboard"></i><span> Dashboard </span> </a>
           </li>
           <li class="has_sub">
+            <a href="{{ route('admin.banner.index') }}" class="waves-effect"><i class="ti-gallery"></i><span> Banner </span> </a>
+          </li>
+          <li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-format-list-bulleted"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
               <li><a href="{{ route('admin.data.table') }}">Data Table</a></li>

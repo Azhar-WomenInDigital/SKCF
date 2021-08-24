@@ -11,29 +11,8 @@
     <link rel="shortcut icon" href="{{ asset('assets/backend/images/favicon.ico') }}">
     <!-- App title -->
     <title>@yield('page-title')</title>
-
-    <!-- Laravel Notify2 Css -->
-    @notifyCss
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- Laravel iZitoast Css -->
+    <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
 
     <!--Morris Chart CSS -->
     <link rel="stylesheet" href="{{ asset('asset/backend/plugins/morris/morris.css') }}">
@@ -94,34 +73,6 @@
     <script src="{{ asset('assets/backend/plugins/switchery/switchery.min.js') }}"></script>
 
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     <!--Morris Chart-->
     <script src="{{ asset('assets/backend/js/modernizr.min.js') }}"></script>
     <script src="{{ asset('assets/backend/plugins/morris/morris.min.js') }}"></script>
@@ -134,10 +85,11 @@
     <!-- App js -->
     <script src="{{ asset('assets/backend/js/jquery.core.js') }}"></script>
     <script src="{{ asset('assets/backend/js/jquery.app.js') }}"></script>
+    <!-- iziToast Js -->
+    <script src="{{ asset('js/iziToast.js') }}"></script>
+    @include('vendor.lara-izitoast.toast')
     <!-- yield another page js -->
     @stack('page-js')
-    <!-- Notify Js -->
-    @notifyJs
-    <x:notify-messages />
+
   </body>
 </html>
