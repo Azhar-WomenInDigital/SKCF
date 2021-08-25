@@ -20,6 +20,7 @@
   <link href="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/frontend/css/responsive.css') }}" rel="stylesheet">
   <style>
     
   </style>
@@ -65,7 +66,8 @@
   <!-- End Header -->
 
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  @foreach ($banner as $data)
+  <section id="hero" class="d-flex align-items-center" style="background-image: url('{{ asset('uploads/banner/'.$data->banner_img) }}');">
     <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <h1>Welcome to</h1>
       <h1><span>Share The Khair <br> Charitable Foundation</span></h1>
@@ -75,7 +77,9 @@
       </div>
     </div>
   </section>
+  @endforeach
   <!-- End Hero -->
+
 
   <!-- ======= About Section ======= -->
   <section id="about" class="about section-bg">
@@ -150,262 +154,24 @@
         <h3>Our Hardworking <span>Team</span></h3>
       </div>
       <div class="row">
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        @foreach ($team as $member)
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
           <div class="member">
             <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
+              <img src="{{ asset('uploads/team-member-pic/'. $member->member_img) }}" class="" alt="">
               <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
+                <a href="{{ $member->tw_link }}" target="blank"><i class="bi bi-twitter"></i></a>
+                <a href="{{ $member->f_link }}" target="blank"><i class="bi bi-facebook"></i></a>
+                <a href="{{ $member->inst_link }}" target="blank"><i class="bi bi-instagram"></i></a>
+                <a href="{{ $member->li_link }}" target="blank"><i class="bi bi-linkedin"></i></a>
               </div>
             </div>
             <div class="member-info">
-              <h4>Alhaj Mr. Badrul Islam Siddique</h4>
+              <h4>{{ $member->member_name }}</h4>
             </div>
           </div>
         </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Dr. Sultan Siddique</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mr. Asim Siddique</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Dr. Mahmud Islam</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mr. Jamil Ahmed Siddique</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mr. Abu Mahamud Khan</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Md Mazharul Islam</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mr. Badiuzzaman Dider</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mr. Mahbub Alam Khan</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Md. Khaled Hassan</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Dr. Ehtesam Ahmed Jewel</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mr. Mannan Bapari</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Advocate Babar Chowdhury</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mohammad Kaikobad Shaikh</h4>
-            </div>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-          <div class="member">
-            <div class="member-img">
-              <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-              <div class="social">
-                <a href=""><i class="bi bi-twitter"></i></a>
-                <a href=""><i class="bi bi-facebook"></i></a>
-                <a href=""><i class="bi bi-instagram"></i></a>
-                <a href=""><i class="bi bi-linkedin"></i></a>
-              </div>
-            </div>
-            <div class="member-info">
-              <h4>Mosaddeque Mahmud Rizwan</h4>
-            </div>
-          </div>
-        </div>
-
+        @endforeach
       </div>
     </div>
   </section>
@@ -419,76 +185,15 @@
         <h3>Our <span>Charitable Programs</span></h3>
       </div>
       <div class="row">
+        @foreach ($program as $data)
         <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
           <div class="member charitable">
             <div class="member-info">
-              <h4>Covid help to the needy peoples</h4>
+              <h4>{{ $data->charitable_programs_name }}</h4>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Education for underprivileged students,</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Health & treatment support to the poor,</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Clean water facilities</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Mosque & orphanage development,</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Project for women’s</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Zakat & Self-empowerment</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Disaster relief & Winter project</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Iftar at Ramadan</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <div class="member-info">
-              <h4>Qurbani for the poor peoples</h4>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>
@@ -530,30 +235,16 @@
         <h3>Our <span>List Of Donar</span></h3>
       </div>
       <div class="row">
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+        @foreach ($donar as $data) 
+        <div class="col-lg-3 col-md-4 col-sm-6 col-xs-6 col-12 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
           <div class="member charitable">
-            <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
+            <img src="{{ asset('uploads/donar-pic/'.$data->donar_img) }}" class="img-fluid" alt="">
             <div class="member-info">
-              <h4>Dr. Sultan Siddique</h4>
+              <h4>{{ $data->donar_name }}</h4>
             </div>
           </div>
         </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-            <div class="member-info">
-              <h4>Mr. Asim Siddique</h4>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-          <div class="member charitable">
-            <img src="{{ asset('assets/frontend/img/default/default.png') }}" class="img-fluid" alt="">
-            <div class="member-info">
-              <h4>Mr. Nayeem Mian Siddique</h4>
-            </div>
-          </div>
-        </div>
+        @endforeach
       </div>
     </div>
   </section>

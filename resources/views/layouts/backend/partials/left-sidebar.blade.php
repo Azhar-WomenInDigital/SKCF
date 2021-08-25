@@ -16,6 +16,9 @@
           <li class="has_sub">
             <a href="{{ route('admin.charitable-program.index') }}" class="waves-effect"><i class=" icon-layers"></i><span></span>Charitable Programs</a>
           </li>
+          <li class="has_sub">
+            <a href="{{ route('admin.donar.index') }}" class="waves-effect"><i class=" icon-emotsmile"></i><span></span>Donar</a>
+          </li>
           <!--<li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-format-list-bulleted"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
