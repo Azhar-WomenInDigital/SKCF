@@ -1,5 +1,5 @@
 @extends('layouts.backend.backend-layouts')
-@section('page-title','Banner | index')
+@section('page-title','Charitable Programs | index')
 @push('page-css')
 <!-- form Uploads -->
 <link href="{{ asset('assets/backend/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />

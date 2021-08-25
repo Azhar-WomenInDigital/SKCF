@@ -1,5 +1,5 @@
 @extends('layouts.backend.backend-layouts')
-@section('page-title','Banner | index')
+@section('page-title','Charitable Programs | Edit')
 @push('page-css')
 @endpush
 @section('page-content')
@@ -12,11 +12,11 @@
                 <div class="page-title-box">
                     <h4 class="page-title float-left text-muted">
                         <i class="ion-ios7-people"></i>
-                        Team Member
+                        Charitable Programs Edit
                     </h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="#">SKCF</a></li>
-                        <li class="breadcrumb-item"><a href="#">Team Member Edit</a></li>
+                        <li class="breadcrumb-item"><a href="#">Charitable Programs Edit</a></li>
                     </ol>
                     <div class="clearfix"></div>
                 </div>
@@ -31,7 +31,7 @@
     <div class="card">
         <div class="row justify-content-center">
             <div class="col-8">
-                <form method="POST" action="{{ route('admin.charitable-program.update', $data->id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.charitable-program.update', $data->id) }}">
                     @csrf
                     @method('put')
                     <div class="modal-body">

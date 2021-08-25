@@ -85,10 +85,11 @@ class CharitableProgramsController extends Controller
             'charitable_programs_name' => 'required',
             'status' => 'required',
         ]);
-        $charitable_programs = CharitablePrograms::findOrFail($id);
-        $charitable_programs->charitable_programs_name = $request->charitable_programs_name;
-        $charitable_programs->status = $request->status;
-        notify()->success("Success","Program Successfully Created");
+        $program = CharitablePrograms::findOrFail($id);
+        $program->charitable_programs_name = $request->charitable_programs_name;
+        $program->status = $request->status;
+        $program->save();
+        notify()->success("Success","Projects Successfully Updated");
         return redirect()->route('admin.charitable-program.index');
     }
 
