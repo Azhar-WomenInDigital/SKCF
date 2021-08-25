@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Route;
 */
 Auth::routes();
 //Frontend Routes
-Route::get('/','Frontend\WebController@index');
+Route::get('/','Frontend\WebController@index')->name('index');
+Route::post('/contact/store', 'Frontend\WebController@contactStore')->name('contact.store');
 //Backend Routes
 Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Backend','middleware'=>['auth','admin']], function (){
     // Admin Dashboard and profile settings route

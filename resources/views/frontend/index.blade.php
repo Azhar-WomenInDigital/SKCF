@@ -18,6 +18,8 @@
   <link href="{{ asset('assets/frontend/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/frontend/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <!-- Laravel iZitoast Css -->
+  <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/frontend/css/style.css') }}" rel="stylesheet">
   <link href="{{ asset('assets/frontend/css/responsive.css') }}" rel="stylesheet">
@@ -46,7 +48,7 @@
   <header id="header" class="d-flex align-items-center">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="index.html">SKCF<span>.</span></a></h1>
+      <h1 class="logo"><a href="{{ route('index') }}">SKCF<span>.</span></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo"><img src="assets/img/logo.png" alt=""></a>-->
 
@@ -373,7 +375,8 @@
         </div>
 
         <div class="col-lg-6">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+          <form action="{{ route('contact.store') }}" method="post" role="form" class="php-email-form">
+            @csrf
             <div class="row">
               <div class="col form-group">
                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
@@ -387,11 +390,6 @@
             </div>
             <div class="form-group">
               <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
             </div>
             <div class="text-center"><button type="submit">Send Message</button></div>
           </form>
@@ -433,7 +431,6 @@
           </div>
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Our Social Networks</h4>
-            <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
             <div class="social-links mt-3">
               <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
               <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
@@ -464,11 +461,13 @@
   <script src="{{ asset('assets/frontend/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
   <script src="{{ asset('assets/frontend/vendor/glightbox/js/glightbox.min.js') }}"></script>
   <script src="{{ asset('assets/frontend/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-  <script src="{{ asset('assets/frontend/vendor/php-email-form/validate.js') }}"></script>
   <script src="{{ asset('assets/frontend/vendor/purecounter/purecounter.js') }}"></script>
   <script src="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.js') }}"></script>
   <script src="{{ asset('assets/frontend/vendor/waypoints/noframework.waypoints.js') }}"></script>
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
+  <!-- iziToast Js -->
+  <script src="{{ asset('js/iziToast.js') }}"></script>
+  @include('vendor.lara-izitoast.toast')
 </body>
 </html>
