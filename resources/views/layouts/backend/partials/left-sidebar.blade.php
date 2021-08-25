@@ -11,6 +11,12 @@
             <a href="{{ route('admin.banner.index') }}" class="waves-effect"><i class="ti-gallery"></i><span> Banner </span> </a>
           </li>
           <li class="has_sub">
+            <a href="{{ route('admin.team.index') }}" class="waves-effect"><i class="ion-ios7-people"></i><span> Team Member </span> </a>
+          </li>
+          <li class="has_sub">
+            <a href="{{ route('admin.charitable-program.index') }}" class="waves-effect"><i class=" icon-layers"></i><span></span>Charitable Programs</a>
+          </li>
+          <!--<li class="has_sub">
             <a href="javascript:void(0);" class="waves-effect"><i class="zmdi zmdi-format-list-bulleted"></i> <span> Tables </span> <span class="menu-arrow"></span></a>
             <ul class="list-unstyled">
               <li><a href="{{ route('admin.data.table') }}">Data Table</a></li>
@@ -29,7 +35,7 @@
               <li><a href="{{ route('admin.form') }}">Forms</a></li>
               <li><a href="{{ route('admin.all.data.table') }}">All Data Table</a></li>
             </ul>
-          </li>
+          </li>-->
         </ul>
         <div class="clearfix"></div>
       </div>

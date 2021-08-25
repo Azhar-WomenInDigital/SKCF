@@ -20,11 +20,11 @@
         <div class="col-xl-12">
           <div class="page-title-box">
             <h4 class="page-title float-left text-muted">
-                <i class="ti-gallery"></i>
-                Banner </h4>
+                <i class="ion-ios7-people"></i>
+                Charitable Programs </h4>
             <ol class="breadcrumb float-right">
               <li class="breadcrumb-item"><a href="#">SKCF</a></li>
-              <li class="breadcrumb-item"><a href="#">Banner</a></li>
+              <li class="breadcrumb-item"><a href="#">Charitable Programs</a></li>
             </ol>
             <div class="clearfix"></div>
           </div>
@@ -40,17 +40,14 @@
       <div class="col-12">
           <div class="card-box table-responsive">
               <a href="" class="btn btn-success mb-5" data-toggle="modal" data-target="#myModal">
-                  Create New Banner
+                  Create New Projects
                   <i class="ion-plus"></i>
               </a>
-
-              
               <table id="responsive-datatable" class="table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                   <thead>
                   <tr>
                       <th>#Sl</th>
-                      <th>Banner Name</th>
-                      <th>Image</th>
+                      <th>Charitable Programs Name</th>
                       <th>Status</th>
                       <th>Last Update</th>
                       <th>Action</th>
@@ -60,10 +57,7 @@
                     @foreach($datas as $key=>$data)
                     <tr>
                       <td>{{ $key + 1 }}</td>
-                      <td>{{ $data->banner_name }}</td>
-                      <td>
-                          <img src="{{ asset('uploads/banner/'.$data->banner_img) }}" alt="" width="200px" height="150px">
-                      </td>
+                      <td>{{ $data->charitable_programs_name }}</td>
                       <td>
                         @if ($data->status == true)
                           <span class="badge badge-success">Active</span>
@@ -74,12 +68,12 @@
                       <td>{{ $data->updated_at->diffForHumans() }}</td>
                       <td class="text-center">
                         <div class="btn-group">
-                          <a href="{{ route('admin.banner.edit', $data->id) }}" class="btn btn-warning btn-sm"><i class="zmdi zmdi-edit zmdi-sm"></i></a>
+                          <a href="{{ route('admin.charitable-program.edit', $data->id) }}" class="btn btn-warning btn-sm"><i class="zmdi zmdi-edit zmdi-sm"></i></a>
                           <a href="#" class="btn btn-info btn-sm"><i class="zmdi zmdi-eye"></i></a>
                           <button type="button" class="btn btn-danger btn-sm rounded-right " onclick="deleteifno({{ $data->id }})">
                             <i class="zmdi zmdi-delete"></i>
                           </button>
-                          <form id="delete-form-{{ $data->id }}" action="{{ route('admin.banner.destroy', $data->id) }}" method="POST" style="display: none;">
+                          <form id="delete-form-{{ $data->id }}" action="{{ route('admin.charitable-program.destroy', $data->id) }}" method="POST" style="display: none;">
                             @csrf
                             @method('DELETE')
                           </form>
@@ -97,29 +91,25 @@
 
 
 
-
-
-
-
   <!-- Modal Card -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Create Banner</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Add New Projects</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                   </button>
               </div>
-              <form method="POST" action="{{ route('admin.banner.store') }}" enctype="multipart/form-data">
+              <form method="POST" action="{{ route('admin.charitable-program.store') }}" enctype="multipart/form-data">
                   @csrf
                   <div class="modal-body">
                       <div class="row">
                           <div class="col-12">
                               <fieldset class="form-group">
-                                  <label for="banner-name">Banner Name</label>
-                                  <input type="text" class="form-control" id="banner-name"
-                                          placeholder="Enter Banner Name" name="banner_name">
+                                  <label for="projects-name">Projects Name</label>
+                                  <input type="text" class="form-control" id="projects-name"
+                                          placeholder="Enter Projects Name" name="charitable_programs_name">
                               </fieldset>
                               <fieldset class="form-group">
                                   <label for="status">Select Status</label>
@@ -128,10 +118,6 @@
                                       <option value="1">Active</option>
                                       <option value="0">Inactive</option>
                                   </select>
-                              </fieldset>
-                              <fieldset class="form-group">
-                                  <label for="img">Banner Image</label>
-                                  <input type="file" class="dropify" name="banner_img" data-max-file-size="1M" />
                               </fieldset>
                           </div><!-- end col -->
                       </div><!-- end row -->
@@ -144,22 +130,6 @@
           </div>
       </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
 @push('page-js')
 <!-- file uploads js -->
@@ -185,7 +155,6 @@
     });
 </script>
 <!-- Dropify Script End-->
-
 <!-- Data Table script -->
 <script>
   $(document).ready(function() {

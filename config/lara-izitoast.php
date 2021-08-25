@@ -9,8 +9,8 @@
 return [
     'titleColor' => '',
     'messageColor' => '',
-    'titleSize' => '38',
-    'messageSize' => '38',
+    'titleSize' => '16',
+    'messageSize' => '17',
     'titleLineHeight' => '38',
     'messageLineHeight' => '38',
     'transitionIn' => 'flipInX',

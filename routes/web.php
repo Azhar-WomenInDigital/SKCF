@@ -13,8 +13,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-
 Auth::routes();
 //Frontend Routes
 Route::get('/','Frontend\WebController@index');
@@ -27,6 +25,10 @@ Route::group(['as'=>'admin.','prefix'=>'admin','namespace'=>'Backend','middlewar
     Route::put('password-update','AccountSettingController@passwordUpdate')->name('password.update');
     // Banner 
     Route::resource('banner','BannerController');
+    // Team
+    Route::resource('team','TeamController');
+    // Charitable Program 
+    Route::resource('charitable-program', 'CharitableProgramsController');
     //Useful Pages Route
     Route::get('starter-page','UseFullPagesController@starterPage')->name('starter.page');
     Route::get('error-404','UseFullPagesController@error404')->name('error.404');

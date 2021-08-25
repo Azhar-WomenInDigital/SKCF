@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Models\Banner;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\File;
 
-class BannerController extends Controller
+class TeamController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +16,8 @@ class BannerController extends Controller
      */
     public function index()
     {
-        $datas = Banner::latest()->get();
-        return view('backend.banner.banner-index', compact('datas'));
+        $datas = Team::latest()->get();
+        return view('backend.team.team-index', compact('datas'));
     }
 
     /**
@@ -39,22 +39,26 @@ class BannerController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'banner_name' => 'required',
+            'member_name' => 'required',
             'status' => 'required',
-            'banner_img' => 'required|mimes:jpg,bmp,png,jpeg',
+            'member_img' => 'required|mimes:jpg,bmp,png,jpeg',
         ]);
-        if ($request->hasfile('banner_img')) {
-            $file = $request->file('banner_img');
+        if ($request->hasfile('member_img')) {
+            $file = $request->file('member_img');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $file->move('uploads/banner/', $filename);
+            $file->move('uploads/team-member-pic/', $filename);
         }
-        $banner = Banner::create([
-            'banner_name' => $request->banner_name,
+        $team = Team::create([
+            'member_name' => $request->member_name,
+            'tw_link' => $request->tw_link,
+            'f_link' => $request->f_link,
+            'inst_link' => $request->inst_link,
+            'li_link' => $request->li_link,
             'status' => $request->status,
-            'banner_img' => $filename,
+            'member_img' => $filename,
         ]);
-        notify()->success("Success","Bannr Successfully Created");
+        notify()->success("Success","Member Successfully Created");
         return redirect()->back();
     }
 
@@ -66,7 +70,8 @@ class BannerController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = Team::findOrFail($id);
+        return view('backend.team.team-show', compact('data'));
     }
 
     /**
@@ -77,8 +82,8 @@ class BannerController extends Controller
      */
     public function edit($id)
     {
-        $data = Banner::findOrFail($id);
-        return view('backend.banner.banner-edit', compact('data'));
+        $data = Team::findOrFail($id);
+        return view('backend.team.team-edit', compact('data'));
     }
 
     /**
@@ -91,28 +96,33 @@ class BannerController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'banner_name' => 'required',
+            'member_name' => 'required',
             'status' => 'required',
         ]);
-        $banner = Banner::findOrFail($id);
-        if ($request->hasfile('banner_img')) {
-            $image_path = public_path('uploads/banner/' . $banner->banner_img);
+        $team = Team::findOrFail($id);
+        if ($request->hasfile('member_img')) {
+            $image_path = public_path('uploads/team-member-pic/' . $team->member_img);
             if (File::exists($image_path)) {
                 File::delete($image_path);
             }
-            $file = $request->file('banner_img');
+            $file = $request->file('member_img');
             $extension = $file->getClientOriginalExtension();
             $filename = time() . '.' . $extension;
-            $file->move('uploads/banner/', $filename);
-        } else {
-            $filename = $banner->banner_img;
+            $file->move('uploads/team-member-pic/', $filename);
+        }else {
+            $filename = $team->member_img;
         }
-        $banner->banner_name = $request->banner_name;
-        $banner->status = $request->status;
-        $banner->banner_img = $filename;
-        $banner->save();
-        notify()->success("Success","Bannr Upload Successfull");
-        return redirect()->route('admin.banner.index');
+        $team->member_name = $request->member_name;
+        $team->member_img = $request->member_img;
+        $team->tw_link = $request->tw_link;
+        $team->f_link = $request->f_link;
+        $team->inst_link = $request->inst_link;
+        $team->li_link = $request->li_link;
+        $team->status = $request->status;
+        $team->member_img = $filename;
+        $team->save();
+        notify()->success("Success","Member Successfully Updated");
+        return redirect()->route('admin.team.index');
     }
 
     /**
@@ -123,13 +133,13 @@ class BannerController extends Controller
      */
     public function destroy($id)
     {
-        $banner = Banner::findOrFail($id);
-        $image_path = public_path('uploads/banner/' . $banner->banner_img);
+        $team = Team::findOrFail($id);
+        $image_path = public_path('uploads/team-member-pic/' . $team->member_img);
         if (File::exists($image_path)) {
             File::delete($image_path);
         }
-        $banner->delete();
-        notify()->success("Success","Banner Successfully Deleted");
+        $team->delete();
+        notify()->success("Success","Member Successfully Deleted");
         return redirect()->back();
     }
 }

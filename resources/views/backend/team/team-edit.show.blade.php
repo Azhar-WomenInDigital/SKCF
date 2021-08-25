@@ -13,12 +13,12 @@
             <div class="col-xl-12">
                 <div class="page-title-box">
                     <h4 class="page-title float-left text-muted">
-                        <i class="ti-gallery"></i>
-                        Banner Edit
+                        <i class="ion-ios7-people"></i>
+                        Team Member
                     </h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="#">SKCF</a></li>
-                        <li class="breadcrumb-item"><a href="#">Banner Edit</a></li>
+                        <li class="breadcrumb-item"><a href="#">Team Member Edit</a></li>
                     </ol>
                     <div class="clearfix"></div>
                 </div>

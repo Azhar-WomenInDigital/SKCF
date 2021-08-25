@@ -2,8 +2,7 @@
     <!-- LOGO -->
     <div class="topbar-left">
       <a href="{{ route('admin.dashboard') }}" class="logo">
-        <i class="zmdi zmdi-group-work icon-c-logo"></i>
-        <span>Uplon</span>
+        <span>SKCF</span>
       </a>
     </div>
     <nav class="navbar-custom">
