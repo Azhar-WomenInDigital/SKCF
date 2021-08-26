@@ -1,5 +1,5 @@
 @extends('layouts.backend.backend-layouts')
-@section('page-title','Banner | index')
+@section('page-title','taem | edit')
 @push('page-css')
 <!-- form Uploads -->
 <link href="{{ asset('assets/backend/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />
@@ -14,7 +14,7 @@
                 <div class="page-title-box">
                     <h4 class="page-title float-left text-muted">
                         <i class="ion-ios7-people"></i>
-                        Team Member
+                        Team Member Edit
                     </h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="#">SKCF</a></li>
@@ -28,7 +28,7 @@
 </div>
 <!-- content -->
 
-
+<!-- List Of Team Data -->
 <div class="container-fluid">
     <div class="card">
         <form method="POST" action="{{ route('admin.team.update', $data->id) }}" enctype="multipart/form-data">
@@ -85,10 +85,7 @@
         </form>
     </div>
 </div>
-
-
-
-
+<!-- List Of Team Data -->
 @endsection
 @push('page-js')
 <!-- file uploads js -->

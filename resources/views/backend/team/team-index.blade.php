@@ -1,5 +1,5 @@
 @extends('layouts.backend.backend-layouts')
-@section('page-title','Banner | index')
+@section('page-title','team | index')
 @push('page-css')
 <!-- form Uploads -->
 <link href="{{ asset('assets/backend/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />
@@ -34,7 +34,7 @@
   </div>
   <!-- content -->
 
-  <!-- Responsive Data Table -->
+  <!-- List Of Team Data -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
@@ -81,7 +81,7 @@
                       <td class="text-center">
                         <div class="btn-group">
                           <a href="{{ route('admin.team.edit', $data->id) }}" class="btn btn-warning btn-sm"><i class="zmdi zmdi-edit zmdi-sm"></i></a>
-                          <a href="#" class="btn btn-info btn-sm"><i class="zmdi zmdi-eye"></i></a>
+                          <a href="{{ route('admin.team.show', $data->id) }}" class="btn btn-info btn-sm"><i class="zmdi zmdi-eye"></i></a>
                           <button type="button" class="btn btn-danger btn-sm rounded-right " onclick="deleteifno({{ $data->id }})">
                             <i class="zmdi zmdi-delete"></i>
                           </button>
@@ -99,7 +99,7 @@
       </div>
     </div><!-- end row -->
   </div>
-  <!-- End Responsive Data Table -->
+  <!-- End List Of Team Data -->
 
 
 

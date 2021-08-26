@@ -34,7 +34,7 @@
   </div>
   <!-- content -->
 
-  <!-- Responsive Data Table -->
+  <!-- List of Programs Data -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
@@ -87,8 +87,7 @@
       </div>
     </div><!-- end row -->
   </div>
-  <!-- End Responsive Data Table -->
-
+  <!-- End List of Programs Data -->
 
 
   <!-- Modal Card -->

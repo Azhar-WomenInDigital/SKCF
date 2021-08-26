@@ -3,7 +3,6 @@
 @push('page-css')
 @endpush
 @section('page-content')
-
 <!-- Start content -->
 <div class="content">
     <div class="container-fluid">
@@ -24,9 +23,9 @@
         </div><!-- end row -->
     </div> <!-- container -->
 </div>
-<!-- content -->
+<!-- End Start content -->
 
-
+<!-- Main content -->
 <div class="container-fluid">
     <div class="card">
         <div class="row justify-content-center">
@@ -56,9 +55,9 @@
                 </form>
             </div>
         </div>
-
     </div>
 </div>
+<!-- End Main content -->
 @endsection
 @push('page-js')
 @endpush

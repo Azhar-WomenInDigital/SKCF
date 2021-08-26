@@ -34,7 +34,7 @@
   </div>
   <!-- content -->
 
-  <!-- Responsive Data Table -->
+  <!-- List Of Donar Data -->
   <div class="container-fluid">
     <div class="row">
       <div class="col-12">
@@ -43,8 +43,6 @@
                   Create New Donar
                   <i class="ion-plus"></i>
               </a>
-
-              
               <table id="responsive-datatable" class="table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                   <thead>
                   <tr>
@@ -93,12 +91,7 @@
       </div>
     </div><!-- end row -->
   </div>
-  <!-- End Responsive Data Table -->
-
-
-
-
-
+  <!-- End List Of Donar Data -->
 
 
   <!-- Modal Card -->
@@ -144,22 +137,6 @@
           </div>
       </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
 @push('page-js')
 <!-- file uploads js -->

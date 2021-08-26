@@ -1,11 +1,10 @@
 @extends('layouts.backend.backend-layouts')
-@section('page-title','Banner | index')
+@section('page-title','Banner | Edit')
 @push('page-css')
 <!-- form Uploads -->
 <link href="{{ asset('assets/backend/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 @section('page-content')
-
 <!-- Start content -->
 <div class="content">
     <div class="container-fluid">
@@ -28,7 +27,7 @@
 </div>
 <!-- content -->
 
-
+<!-- Main Content -->
 <div class="container-fluid">
     <div class="card">
         <div class="row justify-content-center">
@@ -66,12 +65,8 @@
             </div>
         </div>
     </div>
-
 </div>
-
-
-
-
+<!-- End Main Content -->
 @endsection
 @push('page-js')
 <!-- file uploads js -->

@@ -1,11 +1,10 @@
 @extends('layouts.backend.backend-layouts')
-@section('page-title','Banner | index')
+@section('page-title','team | show')
 @push('page-css')
 <!-- form Uploads -->
 <link href="{{ asset('assets/backend/plugins/fileuploads/css/dropify.min.css') }}" rel="stylesheet" type="text/css" />
 @endpush
 @section('page-content')
-
 <!-- Start content -->
 <div class="content">
     <div class="container-fluid">
@@ -14,11 +13,11 @@
                 <div class="page-title-box">
                     <h4 class="page-title float-left text-muted">
                         <i class="ion-ios7-people"></i>
-                        Team Member
+                        Team Member Show
                     </h4>
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item"><a href="#">SKCF</a></li>
-                        <li class="breadcrumb-item"><a href="#">Team Member Edit</a></li>
+                        <li class="breadcrumb-item"><a href="#">Team Member Show</a></li>
                     </ol>
                     <div class="clearfix"></div>
                 </div>
@@ -27,37 +26,56 @@
     </div> <!-- container -->
 </div>
 <!-- content -->
-
-
 <div class="container-fluid">
     <div class="card">
         <div class="row justify-content-center">
             <div class="col-md-8">
-                <form method="POST" action="{{ route('admin.banner.update', $data->id) }}" enctype="multipart/form-data">
+                <form method="POST" action="{{ route('admin.team.update', $data->id) }}" enctype="multipart/form-data">
                     @csrf
                     @method('put')
                     <div class="modal-body">
                         <div class="row">
-                            <div class="col-8">
+                            <div class="col-6">
                                 <fieldset class="form-group">
-                                    <label for="banner-name">Banner Name</label>
-                                    <input type="text" class="form-control" id="banner-name"
-                                            placeholder="Enter Banner Name" name="banner_name" value="{{ $data->banner_name }}">
+                                    <label for="member-name">Memebr Name</label>
+                                    <input disabled type="text" class="form-control" id="member-name"
+                                            placeholder="Enter member Name" name="member_name" value="{{ $data->member_name }}">
                                 </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="member-img">Member Image</label>
+                                    <input disabled type="file" class="dropify" name="member_img" data-default-file="{{ asset('uploads/team-member-pic/'.$data->member_img) }}" data-max-file-size="1M" />
+                                </fieldset>
+                                
                                 <fieldset class="form-group">
                                     <label for="status">Select Status</label>
-                                    <select class="form-control" id="status" name="status">
-                                        <option {{ $data->status == true ? 'selected' : '' }} value="1" >Active</option>
-                                        <option {{ $data->status == false ? 'selected' : '' }} value="0">Inactive</option>
+                                    <select disabled class="form-control" id="status" name="status">
+                                        <option selected disabled>Select Status</option>
+                                        <option value="1" {{ $data->status == true ? 'selected' : '' }}>Active</option>
+                                        <option value="0" {{ $data->status == false ? 'selected' : '' }}>Inactive</option>
                                     </select>
                                 </fieldset>
-                                <button type="submit" class="btn btn-success">Save changes</button>
-                            </div><!-- end col -->
-                            <div class="col-4">
-
+                            </div>
+                            <!-- end col -->
+                            <div class="col-6">
                                 <fieldset class="form-group">
-                                    <label for="img">Banner Image</label>
-                                    <input type="file" class="dropify" name="banner_img" data-default-file="{{ asset('uploads/banner/'.$data->banner_img) }}" data-max-file-size="1M" />
+                                    <label for="twiter-links">Twiter Links</label>
+                                    <input disabled type="text" class="form-control" id="twiter-links"
+                                            placeholder="Enter Twiter Links" name="tw_link" value="{{ $data->tw_link }}">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="facebook-links">Facebook Links</label>
+                                    <input disabled type="text" class="form-control" id="facebook-links"
+                                            placeholder="Enter member Name" name="f_link" value="{{ $data->f_link }}">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="instagram-links">Instagram Links</label>
+                                    <input disabled type="text" class="form-control" id="instagram-links"
+                                            placeholder="Enter member Name" name="inst_link" value="{{ $data->inst_link }}">
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <label for="linked-in-links">Linked in Links</label>
+                                    <input disabled type="text" class="form-control" id="linked-in-links"
+                                            placeholder="Enter member Name" name="li_link" value="{{ $data->li_link }}">
                                 </fieldset>
                             </div>
                         </div><!-- end row -->
@@ -66,12 +84,7 @@
             </div>
         </div>
     </div>
-
 </div>
-
-
-
-
 @endsection
 @push('page-js')
 <!-- file uploads js -->

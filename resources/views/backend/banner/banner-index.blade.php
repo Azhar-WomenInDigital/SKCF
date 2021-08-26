@@ -43,8 +43,6 @@
                   Create New Banner
                   <i class="ion-plus"></i>
               </a>
-
-              
               <table id="responsive-datatable" class="table table-bordered table-bordered dt-responsive nowrap" cellspacing="0" width="100%">
                   <thead>
                   <tr>
@@ -98,9 +96,6 @@
 
 
 
-
-
-
   <!-- Modal Card -->
   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
@@ -144,22 +139,6 @@
           </div>
       </div>
   </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 @endsection
 @push('page-js')
 <!-- file uploads js -->
@@ -185,7 +164,6 @@
     });
 </script>
 <!-- Dropify Script End-->
-
 <!-- Data Table script -->
 <script>
   $(document).ready(function() {
